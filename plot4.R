@@ -9,6 +9,7 @@ plot4 <- function() {
   # Create combined datetime column
   power$dateTime = as.POSIXct(paste(power$Date, power$Time), format="%Y-%m-%d %H:%M:%S")
   
+  # Open graphics device
   png(file = "plot4.png", width = 480, height = 480)
   
   # Setup 2x2 grid of plots
@@ -33,5 +34,6 @@ plot4 <- function() {
   plot(power$dateTime, power$Global_reactive_power, type="n", ylab="Global_reactive_power", xlab="datetime")
   lines(power$dateTime, power$Global_reactive_power)
   
+  # Close device
   dev.off()
 }

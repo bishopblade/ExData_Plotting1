@@ -9,6 +9,7 @@ plot3 <- function() {
   # Create combined datetime column
   power$dateTime = as.POSIXct(paste(power$Date, power$Time), format="%Y-%m-%d %H:%M:%S")
   
+  # Open graphics device
   png(file = "plot3.png", width = 480, height = 480)
   
   plot(power$dateTime, power$Sub_metering_1, type="n", ylab="Energy sub metering", xlab="")
@@ -19,5 +20,6 @@ plot3 <- function() {
   
   legend("topright", col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = 1)
   
+  # Close device
   dev.off()
 }

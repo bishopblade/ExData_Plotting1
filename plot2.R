@@ -9,10 +9,12 @@ plot2 <- function() {
   # Create combined datetime column
   power$dateTime = as.POSIXct(paste(power$Date, power$Time), format="%Y-%m-%d %H:%M:%S")
 
+  # Open graphics device
   png(file = "plot2.png", width = 480, height = 480)
 
   plot(power$dateTime, power$Global_active_power, type="n", ylab="Global Active Power (kilowatts)", xlab="")
   lines(power$dateTime, power$Global_active_power)
 
+  # Close device
   dev.off()
 }
